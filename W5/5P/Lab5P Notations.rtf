@@ -1,0 +1,106 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww15000\viewh16380\viewkind0
+\deftab720
+\pard\pardeftab720\sa280\partightenfactor0
+
+\f0\b\fs28 \cf0 \expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Steps to Implement the Certificate Chain Lab Task 5P\
+\pard\pardeftab720\partightenfactor0
+
+\fs24 \cf0 \strokec2 1. Crate the Web Site Certificate\
+\pard\pardeftab720\partightenfactor0
+\cf0 1.1 Generate the Private Key\
+
+\f1\b0\fs20 openssl genpkey -algorithm RSA -out /usr/home/student/trusted.tne30024.key -pkeyopt rsa_keygen_bits:2048\
+
+\f0\b \
+
+\fs24 1.2 Create a Certificate Signing Request (CSR)\
+
+\f1\b0\fs20 openssl req -new -key /usr/home/student/trusted.tne30024.key -out /usr/home/student/trusted.tne30024.csr -subj "/C=AU/ST=Some-State/O=Internet Widgits Pty Ltd/CN=trusted.tne30024" -addext "subjectAltName=DNS:trusted.tne30024"\
+
+\f0\b \
+
+\fs24 1.3 Sign the CSR Using the Root Certificate and Private Key\
+\pard\pardeftab720\partightenfactor0
+
+\fs20 \cf0 \strokec2 Step 1: Create an extension file for the subjectAltName\
+
+\f1\b0 vi /usr/home/student/trusted.tne30024.ext\
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+Add the following content:
+\f2\fs26 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\fs20 \cf0 \strokec2 authorityKeyIdentifier=keyid,issuer\
+basicConstraints=CA:FALSE\
+keyUsage = digitalSignature, keyEncipherment\
+extendedKeyUsage = serverAuth\
+subjectAltName = @alt_names\
+[alt_names]\
+DNS.1 = trusted.tne30024\
+\
+\
+
+\f0\b Step 2: Run the OpenSSL command with the extension file\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 openssl x509 -req -in /usr/home/student/trusted.tne30024.csr -CA /usr/home/student/tne30024_root.crt -CAkey /usr/home/student/tne30024_root.key -CAcreateserial -out /usr/home/student/trusted.tne30024.crt -days 365 -sha256 -extfile /usr/home/student/trusted.tne30024.ext -passin pass:pass30024
+\fs24 \
+\pard\pardeftab720\sa280\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \strokec2 2. Install the Certificate and Private Key\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs20 \cf0 \outl0\strokewidth0 Create dir (only if not exist)\
+mkdir -p /etc/ssl/private\
+mkdir -p /etc/ssl/certs\
+Move to dir\outl0\strokewidth0 \strokec2 \
+\pard\pardeftab720\partightenfactor0
+\cf0 cp /usr/home/student/trusted.tne30024.crt /etc/ssl/certs/\
+cp /usr/home/student/trusted.tne30024.key /etc/ssl/private/
+\f0\b\fs24 \strokec2 \
+\pard\pardeftab720\sa319\partightenfactor0
+
+\f1\b0\fs20 \cf0 \strokec2 cp /usr/home/student/tne30024_root.crt /etc/ssl/certs/
+\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \strokec2 3. Modify the VirtualHost for trusted.tne30024\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs20 \cf0 \strokec2 vi /usr/local/etc/apache24/extra/httpd-vhosts.conf\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 Modify or add the following block for trusted.tne30024:\
+<VirtualHost *:443>\
+    ServerAdmin webmaster@trusted.tne30024\
+    DocumentRoot "/usr/local/www/trusted"\
+    ServerName trusted.tne30024\
+    SSLEngine on\
+    SSLCertificateFile "/etc/ssl/certs/trusted.tne30024.crt"\
+    SSLCertificateKeyFile "/etc/ssl/private/trusted.tne30024.key"\
+    SSLCertificateChainFile "/etc/ssl/certs/tne30024_root.crt"\
+    ErrorLog "/var/log/http-trusted-error.log"\
+    CustomLog "/var/log/http-trusted-access.log" common\
+    <Directory "/usr/local/www/trusted">\
+        Options +Indexes\
+        Require all granted\
+    </Directory>\
+</VirtualHost>
+\fs24 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \strokec2 4. Restart Apache\
+
+\f1\b0\fs20 \strokec2 service apache24 restart
+\fs24 \
+}

@@ -1,0 +1,219 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fnil\fcharset0 Menlo-Bold;\f1\fnil\fcharset0 Menlo-Regular;\f2\fmodern\fcharset0 Courier;
+\f3\froman\fcharset0 Times-Roman;\f4\froman\fcharset0 Times-Bold;}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;\red0\green0\blue0;\red239\green239\blue239;
+\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\csgray\c0;\csgray\c0\c0;\cssrgb\c94902\c94902\c94902;
+\csgray\c100000;\cssrgb\c0\c0\c0;}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b\fs22 \cf2 \cb3 \CocoaLigature0 1. \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 DNS
+\f1\b0 \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+
+\f0\b Step 1: List of available DNS server
+\f1\b0 \
+nslookup ns1.tne30024 136.186.230.103\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (DNS name server for the tne30024 domain)\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cb5 nslookup \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 rule201.tne30024\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0  136.186.230.103\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (your rule host within the tne30024 domain)\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cb3 nslookup \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 selfsigned.tne30024\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0  136.186.230.103\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (web site for this lab \'96 lab 4)\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cb3 nslookup \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 trusted.tne30024\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0  136.186.230.103\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (web site for the next lab \'96 lab 5)\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb3 \kerning1\expnd0\expndtw0 \CocoaLigature0 nslookup \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 chained.tne30024\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0  136.186.230.103\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb4 \expnd0\expndtw0\kerning0
+\CocoaLigature1 (web site for the next lab \'96 lab 5)\
+\pard\pardeftab720\partightenfactor0
+\cf6 \cb3 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b \cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 Step 2: Move to super user / root access (as otherwise file is readonly), log with root password
+\f1\b0 \
+su -\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf6 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+
+\f0\b Step 3: Make changes to the files
+\f1\b0 \
+\pard\pardeftab720\partightenfactor0
+\cf6 Open file (i to edit mode and esc to quit edit mode, x to delete character on cursor, :wq to save and quit):\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 vi /usr/local/etc/namedb/working/tne30024\
+Change all rule201 to rule103 and the instances of \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 136.186.230.201 to 136.186.230.103\
+\
+\pard\pardeftab720\partightenfactor0
+\cf6 \cb3 Open file:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 vi \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 /usr/local/etc/namedb/working/230.186.136.in-addr.arpa\
+Change number 201 to 103 on line 14, rule201.tne30024. to ruleXX.tne30024.\
+\
+Restart DNS server:\
+\pard\pardeftab720\partightenfactor0
+\cf0 /usr/local/etc/rc.d/named restart
+\f2 \
+\
+
+\f0\b 2. Web Server\
+Modify the configuration files\
+
+\f1\b0 First file:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 vi /usr/local/etc/apache24/httpd.conf\
+Second file (Change all rule 201 to 103):\
+vi /usr/local/etc/apache24/extra/httpd-vhosts.conf\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf0 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 Restart web server afterwards:\
+\pard\pardeftab720\partightenfactor0
+\cf0 /usr/local/etc/rc.d/apache24 restart\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f0\b \cf0 \
+3.Testing the Web Server\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+
+\f1\b0 \cf0 Go to http://rule103.caia.swin.edu.au/ and check if it says \'93It works!\'94.\
+Option 1 (NOT recommended): Go to Wifi - Network Preferences - Advanced - DNS - Add your rule as a DNS server (136.186.230.103)\
+Option 2: Go to local Terminal\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \cb1 \kerning1\expnd0\expndtw0 \CocoaLigature0 Change the IP address from this (type in password as well): sudo nano /etc/hosts \cf0 \cb3 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+Add these IP address:\
+\pard\pardeftab720\partightenfactor0
+\cf0 136.186.230.103  rule103.tne30024\
+136.186.230.103  selfsigned.tne30024\
+136.186.230.103  trusted.tne30024\
+136.186.230.103  chained.tne30024\
+Then check if these websites work:\
+\pard\pardeftab720\partightenfactor0
+\cf0 \cb1 http://rule103.tne30024\
+http://selfsigned.tne30024\
+http://trusted.tne30024\
+http://chained.tne30024\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \cb3 \
+4. Methodology\
+Step 1: Prepare the Certificate\
+a. Generate a Private Key and Self-Signed Certificate:\
+
+\f1\b0 openssl req -x509 -newkey rsa:2048 -nodes -keyout selfsigned.key -out selfsigned.crt -subj "/CN=selfsigned.tne30024" -extensions v3_ca -days 365\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \cb1 b. Include subjectAltName in the certificate for modern browsers:\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Find the file openssl.cnf:\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 openssl version -d.       # Locate directory\
+ls /etc/ssl               # List directory to ensure file existence\
+vi /etc/ssl/openssl.cnf   # Modify the file
+\f0\b \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 c. Modify or create a configuration file, e.g., openssl.cnf, to include:
+\f1\b0 \
+Locate v3_req header and make changes as below, add alt_names header also:\ul \
+\pard\pardeftab720\partightenfactor0
+\cf0 \ulnone [ v3_req ]\
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 basicConstraints = CA:FALSE\
+keyUsage = nonRepudiation, digitalSignature, keyEncipherment\
+subjectAltName = @alt_names\
+[ alt_names ]\
+DNS.1 = selfsigned.tne30024\
+
+\f0\b d. Generate RSA private key with that configs
+\f1\b0 \
+root@rule103:~ # openssl req -new -x509 -nodes -keyout selfsigned.key -out selfsigned.crt -days 365 -config /etc/ssl/openssl.cnf -extensions v3_req\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 e. Check the Alternative name, make sure it\'92s like this
+\f1\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 root@rule103:~ # openssl x509 -in \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 /etc/ssl/certs/\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 selfsigned.crt -text -noout | grep -A1 'X509v3 Subject Alternative Name'\
+            X509v3 Subject Alternative Name: \
+                DNS:selfsigned.tne30024
+\f3\fs24 \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs22 \cf0 Step 2: Install the Certificate and Private Key
+\f3\b0\fs24 \
+
+\f0\b\fs22 a. Create directories\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 mkdir -p /etc/ssl/private\
+mkdir -p /etc/ssl/certs\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 b1. Move the Files to Their Respective Directories
+\f1\b0 \
+mv selfsigned.key /etc/ssl/private/\
+mv selfsigned.crt /etc/ssl/certs/\
+
+\f0\b b2. Check the Alternative name, make sure it\'92s like this
+\f1\b0 \
+\pard\tx560\tx1120\tx1680\tx2240\tx2800\tx3360\tx3920\tx4480\tx5040\tx5600\tx6160\tx6720\pardeftab720\pardirnatural\partightenfactor0
+\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 root@rule103:~ # openssl x509 -in \cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 /etc/ssl/certs/\cf2 \kerning1\expnd0\expndtw0 \CocoaLigature0 selfsigned.crt -text -noout | grep -A1 'X509v3 Subject Alternative Name'\
+            X509v3 Subject Alternative Name: \
+                DNS:selfsigned.tne30024\cf0 \expnd0\expndtw0\kerning0
+\CocoaLigature1 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 c. Set Appropriate Permissions
+\f1\b0 \
+chmod 600 /etc/ssl/private/selfsigned.key\
+chown root:root /etc/ssl/private/selfsigned.key
+\f3\fs24 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs22 \cf0 \cb3 Step 3: Enable SSL Module in Apache\
+
+\f1\b0 Edit:
+\f0\b \
+
+\f1\b0 vi /usr/local/etc/apache24/httpd.conf\
+Uncomment the SSL Module Line\
+#LoadModule ssl_module libexec/apache24/mod_ssl.so\
+Edit:
+\f4\b\fs24 \cb1 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0\fs22 \cf0 vi /usr/local/etc/apache24/extra/httpd-vhosts.conf\
+<Format at W4/savedFiles/local/etc/apache24/extra\
+\
+Make sure Listen port 80 at http.conf and 443 at http-hosts.conf\
+\pard\pardeftab720\partightenfactor0
+
+\f4\b\fs24 \cf0 \
+}
