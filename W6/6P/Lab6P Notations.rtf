@@ -1,0 +1,275 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Bold;\f1\froman\fcharset0 Times-Roman;\f2\fmodern\fcharset0 Courier;
+\f3\fmodern\fcharset0 Courier-Bold;\f4\fnil\fcharset0 LucidaGrande;\f5\fnil\fcharset0 LucidaGrande-Bold;
+}
+{\colortbl;\red255\green255\blue255;\red0\green0\blue0;}
+{\*\expandedcolortbl;;\cssrgb\c0\c0\c0;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid1\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}
+{\list\listtemplateid2\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid101\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid2}
+{\list\listtemplateid3\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid201\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid3}
+{\list\listtemplateid4\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid301\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid302\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid4}
+{\list\listtemplateid5\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid401\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{circle\}}{\leveltext\leveltemplateid402\'01\uc0\u9702 ;}{\levelnumbers;}\fi-360\li1440\lin1440 }{\listname ;}\listid5}
+{\list\listtemplateid6\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid501\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid6}
+{\list\listtemplateid7\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{disc\}}{\leveltext\leveltemplateid601\'01\uc0\u8226 ;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid7}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}{\listoverride\listid2\listoverridecount0\ls2}{\listoverride\listid3\listoverridecount0\ls3}{\listoverride\listid4\listoverridecount0\ls4}{\listoverride\listid5\listoverridecount0\ls5}{\listoverride\listid6\listoverridecount0\ls6}{\listoverride\listid7\listoverridecount0\ls7}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\pardeftab720\partightenfactor0
+
+\f0\b\fs24 \cf0 \expnd0\expndtw0\kerning0
+1. Objective\
+\pard\pardeftab720\sa240\partightenfactor0
+
+\f1\b0 \cf0 The task is to modify the provided 
+\f2\fs26 client.py
+\f1\fs24  and 
+\f2\fs26 server.py
+\f1\fs24  scripts to use TLS for secure communication. This will enable the server to validate itself to the client, secure data transmissions, and optionally validate the client.\
+\pard\pardeftab720\sa319\partightenfactor0
+
+\f0\b \cf0 2. Preparation\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Before modifying the scripts, ensure that:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0\cf0 \kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+You have 
+\f2\fs26 client.py
+\f1\fs24  and 
+\f2\fs26 server.py
+\f1\fs24  downloaded and running successfully.\
+\ls1\ilvl0\kerning1\expnd0\expndtw0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+You can execute both scripts and verify that they communicate correctly without TLS.\
+\pard\tx566\pardeftab720\partightenfactor0
+\cf0 \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 3. Generate Self-Signed Certificates\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 To implement TLS, you need a server certificate and private key. Follow these steps to generate a self-signed certificate:\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls2\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 	1. \expnd0\expndtw0\kerning0
+Generate the Private Key:
+\f1\b0 \
+\pard\tx220\tx720\pardeftab720\li720\fi-720\sa240\partightenfactor0
+\ls2\ilvl0\cf0 openssl genpkey -algorithm RSA -out server.key -aes256\
+\pard\pardeftab720\partightenfactor0
+\cf0     
+\f0\b 2. Create a Certificate Signing Request (CSR):\
+
+\f1\b0 openssl req -new -key server.key -out server.csr
+\f0\b \
+
+\f1\b0 Ensure that the 
+\f2\fs26 commonName
+\f1\fs24  is set to the server's DNS name (e.g., 
+\f2\fs26 localhost
+\f1\fs24 ).\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0     3. Generate the Self-Signed Certificate:
+\f1\b0 \
+openssl x509 -req -in server.csr -signkey server.key -out server.crt -days 365\
+\
+
+\f0\b     4. Modify 
+\f3\fs26 server.py
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Modify the 
+\f2\fs26 server.py
+\f1\fs24  script to wrap the TCP socket with an SSL/TLS socket:\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls3\ilvl0
+\f0\b \cf0 Uncomment Required Lines in 
+\f3\fs26 parse_cli()
+\f0\fs24 :
+\f1\b0  In the 
+\f2\fs26 parse_cli()
+\f1\fs24  function, uncomment the lines to add the certificate and private key as command-line arguments:\
+parser.add_argument('cert', type=ValidFile(), help='Location of Server Public Certificate File')\
+parser.add_argument('key', type=ValidFile(), help='Location of Server Private Key')\
+\pard\pardeftab720\partightenfactor0
+\ls3\ilvl0
+\f0\b \cf0 \
+Wrap the Server Socket with SSL/TLS:
+\f1\b0  Modify the 
+\f2\fs26 run_server()
+\f1\fs24  function to create an SSL context and wrap the socket:\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0    5. Modify 
+\f3\fs26 client.py
+\f0\fs24 \
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Modify the 
+\f2\fs26 client.py
+\f1\fs24  script to connect to the server using TLS:\
+\pard\tx566\pardeftab720\partightenfactor0
+
+\f0\b \cf0 Uncomment Required Lines in 
+\f3\fs26 parse_cli()
+\f0\fs24 :
+\f1\b0  In the 
+\f2\fs26 parse_cli()
+\f1\fs24  function, uncomment the lines to add options for the server certificate and common name:\
+parser.add_argument('cert', type=ValidFile(), help='Location of Server Public Certificate File to use to validate server')\
+parser.add_argument('-c', '--common_name', help="Common Name of server certificate if it is different than server as listed above")\
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 Wrap the Client Socket with SSL/TLS:
+\f1\b0  Modify the 
+\f2\fs26 run_client()
+\f1\fs24  function to create an SSL context and wrap the socket:\
+\
+
+\f0\b    6. Testing Your Solution\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 python3 server.py -p 1024 server.crt server.key\
+python3 client.py -p 1024 localhost server.crt \
+\
+\pard\tx566\pardeftab720\partightenfactor0
+\cf0 Use Wireshark to capture traffic and verify that the communication is encrypted and cannot be read.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0    7. \outl0\strokewidth0 \strokec2 Install Wireshark\
+\pard\pardeftab720\partightenfactor0
+
+\f1\b0 \cf0 Also install ChmodBPF under this instruction for MacOS\
+https://www.wireshark.org/docs/wsug_html_chunked/ChBuildInstallOSXInstall.html \
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \outl0\strokewidth0 \
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 \strokec2    8. Start Wireshark and Set Up Capture\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0\cf0 Open Wireshark
+\f1\b0 : Launch Wireshark from your system.\
+\ls4\ilvl0
+\f0\b Select the Appropriate Network Interface
+\f1\b0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls4\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If both your server and client are running on the same machine, select the 
+\f0\b Loopback
+\f1\b0  interface (usually named lo0, lo, or 127.0.0.1).\
+\ls4\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If the server and client are on different machines, select the network interface through which they communicate (e.g., Ethernet, Wi-Fi).\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls4\ilvl0
+\f0\b \cf0 Set Capture Filters (Optional)
+\f1\b0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls4\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 To capture only the traffic related to your server, set a filter such as tcp port 1024 (replace 1024 with the port number your server is using).\
+\ls4\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Enter this filter in the "Capture Filter" field at the top of the Wireshark window, then click the 
+\f0\b Start
+\f1\b0  button.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \outl0\strokewidth0    9. Run server and client\
+\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 \strokec2    10. Inspect Captured Traffic in Wireshark\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	1	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Stop the Capture
+\f1\b0 : Once you\'92ve sent some data and received responses, go back to Wireshark and click the 
+\f0\b Stop
+\f1\b0  button to stop capturing packets.\
+\ls5\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	2	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Analyze the Captured Packets
+\f1\b0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Look for packets labeled with 
+\f0\b TLSv1.2
+\f1\b0  or 
+\f0\b TLSv1.3
+\f1\b0  in the protocol column. This indicates that the communication is using the TLS protocol.\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 You will typically see packets such as Client Hello, Server Hello, Certificate, Key Exchange, and Application Data.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	3	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Verify Encrypted Communication
+\f1\b0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Click on any packet labeled Application Data. These packets represent the actual encrypted data being transferred between your client and server.\
+\ls5\ilvl1\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 In the packet details pane (middle section), you will see fields such as Encrypted Application Data. Expand these fields to see that the actual payload data (your messages) is encrypted and unreadable.\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls5\ilvl1
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f5 \uc0\u9702 
+\f0 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Unencrypted data should not be visible.
+\f1\b0  If you see readable text in Application Data, it means the connection is not secure.\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls5\ilvl0
+\f0\b \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	4	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Verify Packet Payloads
+\f1\b0 :\
+\pard\tx940\tx1440\pardeftab720\li1440\fi-1440\partightenfactor0
+\ls5\ilvl1\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	
+\f4 \uc0\u9702 
+\f1 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 In the bottom pane (Packet Bytes), the data displayed should be in binary or hexadecimal format and should not be readable text. This confirms the encryption is working properly.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \strokec2    11. Confirm Encryption in Wireshark\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls6\ilvl0
+\f1\b0 \cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 The presence of the TLS handshake packets (Client Hello, Server Hello, etc.) and encrypted Application Data packets confirms that the TLS protocol is active.\
+\ls6\ilvl0\kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 If you can read any plaintext data in the packets, double-check your modifications to the Python scripts to ensure that SSL/TLS is correctly implemented.\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \strokec2    12. Troubleshooting Tips\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls7\ilvl0\cf0 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 No TLS Packets Detected
+\f1\b0 : Ensure that both the client and server are correctly configured to use TLS and that you are monitoring the correct network interface.\
+\ls7\ilvl0
+\f0\b \kerning1\expnd0\expndtw0 \outl0\strokewidth0 {\listtext	\uc0\u8226 	}\expnd0\expndtw0\kerning0
+\outl0\strokewidth0 \strokec2 Plaintext Data Visible
+\f1\b0 : If you see plaintext data, it means the encryption was not correctly set up. Double-check the SSL/TLS socket wrapping code in both client.py and server.py.\
+\pard\pardeftab720\partightenfactor0
+\cf0 \outl0\strokewidth0 \
+\
+\pard\pardeftab720\partightenfactor0
+
+\f0\b \cf0 \
+\
+\
+\
+}
