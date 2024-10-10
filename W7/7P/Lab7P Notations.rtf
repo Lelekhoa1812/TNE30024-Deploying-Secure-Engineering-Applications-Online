@@ -1,0 +1,48 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2639
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\froman\fcharset0 Times-Roman;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc0\levelnfcn0\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{decimal\}}{\leveltext\leveltemplateid1\'01\'00;}{\levelnumbers\'01;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
+{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\deftab720
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\ls1\ilvl0
+\f0\fs24 \cf0 USING DIFFERENT SELF-SIGNED CERT\
+# Generate the server private key\
+openssl genrsa -out server_key.pem 2048\
+\
+# Generate a certificate signing request (CSR) for the server\
+openssl req -new -key server_key.pem -out server_csr.pem -subj "/CN=server"\
+\
+# Create the self-signed certificate for the server (valid for 365 days)\
+openssl x509 -req -days 365 -in server_csr.pem -signkey server_key.pem -out server_cert.pem\
+\
+# Generate the client private key\
+openssl genrsa -out client_key.pem 2048\
+\
+# Generate a certificate signing request (CSR) for the client\
+openssl req -new -key client_key.pem -out client_csr.pem -subj "/CN=client"\
+\
+# Create the self-signed certificate for the client (valid for 365 days)\
+openssl x509 -req -days 365 -in client_csr.pem -signkey client_key.pem -out client_cert.pem\
+\
+#BASH\
+python3 server.py -p 1024 server_cert.pem server_key.pem -v client_cert.pem\
+python3 client.py -p 1024 localhost server_cert.pem -v client_cert.pem client_key.pem\
+\
+\pard\tx220\tx720\pardeftab720\li720\fi-720\partightenfactor0
+\cf0 USING SAME SELF-SIGNED CERT\
+# Generate a private key\
+openssl genrsa -out shared_key.pem 2048\
+\
+# Generate a certificate signing request (CSR)\
+openssl req -new -key shared_key.pem -out shared_csr.pem -subj "/CN=shared"\
+\
+# Create a self-signed certificate (valid for 365 days)\
+openssl x509 -req -days 365 -in shared_csr.pem -signkey shared_key.pem -out shared_cert.pem\
+\
+# BASH\
+python3 server.py -p 1024 shared_cert.pem shared_key.pem -v shared_cert.pem\
+python3 client.py -p 1024 localhost shared_cert.pem -v shared_cert.pem shared_key.pem\
+}
