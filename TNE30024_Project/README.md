@@ -1,16 +1,3 @@
-**Log in to Rule host**
-```
-ssh student@136.186.230.103
-(student@136.186.230.103) Password for student@rule103: ggtm4lma
-```
-Vi bash essentials:   
-- d + right - delete 1 char of the cursor
-- d + left - delete 1 char to the left of cursor
-- shift + left/right - delete line
-- :q! - delete override
-- :wd! - save override
-- /password_file - search for password file (change variable to search for)
-
 ## 1. Reconfiguring Mosquitto Server to Support Encrypted Communications**
 **1.1 Set Up the Required Configuration Files on the Rule Host**
 ```
